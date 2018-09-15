@@ -1,0 +1,159 @@
+{
+"consolidated_weather": [
+{
+"id": 6747609725140992,
+"weather_state_name": "Showers",
+"weather_state_abbr": "s",
+"wind_direction_compass": "NE",
+"created": "2018-09-15T03:06:16.736455Z",
+"applicable_date": "2018-09-15",
+"min_temp": 24.86,
+"max_temp": 32.22,
+"the_temp": 31.89,
+"wind_speed": 3.711569063124685,
+"wind_direction": 45.46441117046022,
+"air_pressure": 1017.175,
+"humidity": 64,
+"visibility": 11.883724051539012,
+"predictability": 73
+},
+{
+"id": 5684467477774336,
+"weather_state_name": "Light Cloud",
+"weather_state_abbr": "lc",
+"wind_direction_compass": "ENE",
+"created": "2018-09-15T03:06:19.649624Z",
+"applicable_date": "2018-09-16",
+"min_temp": 24.603333333333335,
+"max_temp": 31.656666666666666,
+"the_temp": 31.11,
+"wind_speed": 4.625006713001405,
+"wind_direction": 69.80094843540714,
+"air_pressure": 1016.815,
+"humidity": 60,
+"visibility": 12.592397896285691,
+"predictability": 70
+},
+{
+"id": 6352176112730112,
+"weather_state_name": "Light Cloud",
+"weather_state_abbr": "lc",
+"wind_direction_compass": "E",
+"created": "2018-09-15T03:06:22.723172Z",
+"applicable_date": "2018-09-17",
+"min_temp": 23.763333333333332,
+"max_temp": 33.43666666666667,
+"the_temp": 31.65,
+"wind_speed": 3.536636466112569,
+"wind_direction": 79.23776214160024,
+"air_pressure": 1016.675,
+"humidity": 58,
+"visibility": 14.065047621888173,
+"predictability": 70
+},
+{
+"id": 6624112772382720,
+"weather_state_name": "Showers",
+"weather_state_abbr": "s",
+"wind_direction_compass": "NNW",
+"created": "2018-09-15T03:06:25.743484Z",
+"applicable_date": "2018-09-18",
+"min_temp": 24.536666666666665,
+"max_temp": 33.263333333333335,
+"the_temp": 32.57,
+"wind_speed": 2.5810924784352713,
+"wind_direction": 347.54187418926847,
+"air_pressure": 1008.875,
+"humidity": 52,
+"visibility": 11.511522707388849,
+"predictability": 73
+},
+{
+"id": 6690508378210304,
+"weather_state_name": "Light Rain",
+"weather_state_abbr": "lr",
+"wind_direction_compass": "ENE",
+"created": "2018-09-15T03:06:28.851032Z",
+"applicable_date": "2018-09-19",
+"min_temp": 24.983333333333334,
+"max_temp": 31.673333333333336,
+"the_temp": 32.075,
+"wind_speed": 2.8078755387868184,
+"wind_direction": 71.32143741588524,
+"air_pressure": 1009.825,
+"humidity": 57,
+"visibility": 9.159011373578302,
+"predictability": 75
+},
+{
+"id": 6229897026469888,
+"weather_state_name": "Light Rain",
+"weather_state_abbr": "lr",
+"wind_direction_compass": "E",
+"created": "2018-09-15T03:06:32.022212Z",
+"applicable_date": "2018-09-20",
+"min_temp": 24.650000000000002,
+"max_temp": 31.496666666666666,
+"the_temp": 30.74,
+"wind_speed": 3.299919669132268,
+"wind_direction": 86.5,
+"air_pressure": 1010.01,
+"humidity": 68,
+"visibility": 9.997862483098704,
+"predictability": 75
+}
+],
+"time": "2018-09-15T11:37:59.945938+07:00",
+"sun_rise": "2018-09-15T05:45:34.999144+07:00",
+"sun_set": "2018-09-15T17:49:59.817415+07:00",
+"timezone_name": "LMT",
+"parent": {
+"title": "Indonesia",
+"location_type": "Country",
+"woeid": 23424846,
+"latt_long": "0.109740,113.917397"
+},
+"sources": [
+{
+"title": "BBC",
+"slug": "bbc",
+"url": "http://www.bbc.co.uk/weather/",
+"crawl_rate": 180
+},
+{
+"title": "Forecast.io",
+"slug": "forecast-io",
+"url": "http://forecast.io/",
+"crawl_rate": 480
+},
+{
+"title": "Met Office",
+"slug": "met-office",
+"url": "http://www.metoffice.gov.uk/",
+"crawl_rate": 180
+},
+{
+"title": "OpenWeatherMap",
+"slug": "openweathermap",
+"url": "http://openweathermap.org/",
+"crawl_rate": 360
+},
+{
+"title": "World Weather Online",
+"slug": "world-weather-online",
+"url": "http://www.worldweatheronline.com/",
+"crawl_rate": 360
+},
+{
+"title": "Yahoo",
+"slug": "yahoo",
+"url": "http://weather.yahoo.com/",
+"crawl_rate": 180
+}
+],
+"title": "Jakarta",
+"location_type": "City",
+"woeid": 1047378,
+"latt_long": "-6.171440,106.827820",
+"timezone": "Asia/Jakarta"
+}
