@@ -7,29 +7,27 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="<?= asset_uri(); ?>css/bootstrap.min.css" >
     <link rel="stylesheet" href="<?= asset_uri(); ?>css/fonts/fonts.css" >
-    <link rel="stylesheet" href="<?= asset_uri(); ?>css/styles_misc.css" >
-    <link rel="stylesheet" href="<?= asset_uri(); ?>css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= asset_uri(); ?>css/styles.css" >
+    
 
     <script src="<?= asset_uri(); ?>js/jquery-3.3.1.min.js"></script>
     <script src="<?= asset_uri(); ?>js/bootstrap.min.js"></script>
 
 </head>
 <body>
-    <nav class="navbar navbar-inverse" role="navigation">
+    
 
-        <div class="container-fluid">
-            <!-- add header -->
-            <div class="navbar-header pull-left">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" class="read-more" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
             </div>
-
-            <!-- add menu -->
-            <div class="collapse navbar-collapse" id="navbar1">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="<?= site_url() ?>">Home <span class="sr-only">(current)</span></a></li>
                     <li class="dropdown ">
@@ -40,19 +38,17 @@
                         </ul>
                     </li>
                 </ul>
-              <!-- add search form -->
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="input-group-btn">
+                                <button class="btn btn-green" type="button"><i class="glyphicon glyphicon-search"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
             </div>
-             <form class="navbar-form navbar-right pull-right" role="search">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search this site">
-                <span class="input-group-btn">
-                  <button type="submit" class="btn btn-default">
-                    <span class="glyphicon glyphicon-search"></span>
-                  </button>
-                </span>
-              </div>
-          </form>
-           
         </div>
     </nav>
 

@@ -1,58 +1,109 @@
-@font-face {
-    font-family: 'webfontbold';
-    src: url('font/nevis-webfont.woff2') format('woff2'),
-         url('font/nevis-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
 
+a {
+  text-decoration: none!important;
 }
 
 body {
-	margin:0px;
-	padding: 0px;
-	background-color:#2A5B6C ;
-	background-image: radial-gradient(farthest-side at 58% 35%, white, #2A5B6C, black);
+  margin:0px;
+  padding: 0px;
+  background-color:#2A5B6C;
+  background-image: radial-gradient(white, #2A5B6C, black);
 }
 
-#header-widget {
-	padding-top: 10px;
-	padding-bottom: 10px;
+ul {
+  list-style: none;
+  margin: 0px;
 }
 
-.today-img {
-	background-color: rgba(150,0,150,0.2);
-	margin: 0 auto;
-	z-index: 999;
+p {
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0.25px;
+  font-weight: 300;
 }
 
-.left-widget {
-	margin: 0 auto;
+hr {
+  margin-left: auto;
+  margin-right: auto;
+  background-color:#2b6068;
+  opacity: 0.5;
+}
+
+.col-xs-15,
+.col-sm-15,
+.col-md-15{
+  position: relative;
+  min-height: 1px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.col-xs-15 {
+  width: 20%;
+  float: left;
+}
+
+
+@media (min-width: 768px) {
+.col-sm-15 {
+      width: 20%;
+      float: left;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-md-15 {
+      width: 20%;
+      float: left;
+  }
+}
+
+.clearfix:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+
+.list-item {
+  background-color: rgba(20,20,20,0.2);
+  text-align: center;
+  padding: 2px 0px;
+  margin: 15px 0px;
+  color: #2e6987;
 }
 
 .today-temp {
-	background-color: rgba(150,150,150,0.2);
-	font-size: 60px;
-	color: #fff;
-	font-family: webfontbold;
+  /* background-color: rgba(120,120,150,0.3); */
+  font-size: 60px;
+  color: #fff;
+  font-family: webfontbold;
+  text-align: right;
 }
 
-.limit-temp {
-	width: 200px;
+.today-minmax {
+  text-align: right;
+  font-size: 26px;
 }
 
-.blue {
-	color: #0000ff;
+.cons-img {
+  width: 80%;
 }
 
-.red {
-	color: #ff0000;
+.min-color {
+  color: steelblue;
 }
-.widget-box {
-	margin-left: 5px;
-	margin-right: 5px;
-	background-color: rgba(20,20,20,0.2);
-	width: 350px;
-	height: 200px;
-	color: #fff;
+
+.max-color {
+  color: #a77d48;
+}
+
+.wrapper {
+  text-align: left;
+}
+
+.small-text {
 
 }
+/* RESPONSIVE */
+
+

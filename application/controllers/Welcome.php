@@ -35,13 +35,13 @@ class Welcome extends CI_Controller {
 		$err = curl_error($curl);
 		print_r(json_decode($response));*/
 
-		$weather = $this->get_day_forecast('jakarta');
+		// $weather = $this->get_day_forecast('jakarta');
 		// $weather = file_get_contents(asset_uri().'assets/js/demo_data.json');
 
-		// $demo_url = asset_uri().'js/demo_data.json';
-		// $weather = file_get_contents($demo_url);
-		// $this->load->view('vhome',['weather_data'=>json_decode($weather)],false);
-		$this->load->view('vhome', ['weather_data'=>$weather],false);
+		$demo_url = asset_uri().'js/demo_data.json';
+		$weather = file_get_contents($demo_url);
+		$this->load->view('vhome',['weather_data'=>json_decode($weather)],false);
+		// $this->load->view('vhome', ['weather_data'=>$weather],false);
 	}
 
 	public function get_day_forecast($city) {
@@ -73,6 +73,10 @@ class Welcome extends CI_Controller {
 		$result=curl_exec($ch);
 		curl_close($ch);
 		return json_decode($result);
+	}
+
+	function search() {
+		$post = $this->input->post(null,true);
 	}
 
 }
