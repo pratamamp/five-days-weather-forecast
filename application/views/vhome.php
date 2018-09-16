@@ -38,12 +38,12 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="navbar-form navbar-right" role="search">
+                <form class="navbar-form navbar-right" role="search" method="POST">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input type="text" class="form-control" placeholder="Search" name="search">
                             <span class="input-group-btn">
-                                <button class="btn btn-green" type="button"><i class="glyphicon glyphicon-search"></i></button>
+                                <button class="btn btn-green" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                             </span>
                         </div>
                     </div>
