@@ -4,64 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Weather Forecast</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="<?= asset_uri(); ?>css/bootstrap.min.css" >
-    <link rel="stylesheet" href="<?= asset_uri(); ?>css/font/fonts.css" >
-    <link rel="stylesheet" href="<?= asset_uri(); ?>css/styles.css" >
+    <link rel="stylesheet" href="<?= asset_uri(); ?>css/fonts/fonts.css" >
+    <link rel="stylesheet" href="<?= asset_uri(); ?>css/styles_misc.css" >
+    <link rel="stylesheet" href="<?= asset_uri(); ?>css/font-awesome.min.css">
+
+    <script src="<?= asset_uri(); ?>js/jquery-3.3.1.min.js"></script>
+    <script src="<?= asset_uri(); ?>js/bootstrap.min.js"></script>
 
 </head>
 <body>
-    
-    <div class="container">
-        <div class="row">
-            <div class="wrapper">
-                <div class="col-md-12">
-                    <div class="row">
-                        <?php $today_weather = $weather_data->consolidated_weather[0]; ?>
-                        <div class="col-md-4 today-img"></div>
-                        <div class="col-md-4 today-img">
-                            <img src="<?=asset_uri()?>image/clear.png">
-                        </div>
-                        <div class="col-md-4 today-img"></div>
-                    </div>
-                    <div class="row">
-                       <div class="col-md-6 today-temp">
-                            <?= round($today_weather->the_temp,0) ?>&#176;
-                       </div>
-                       <div class="col-md-6"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 today-minmax"><span class="blue"><?= round($today_weather->min_temp,0) ?>&#176;</span> / <span class="red"><?= round($today_weather->max_temp,0) ?>&#176;</span></div>
-                        <div class="col-md-6"></div>
-                    </div>
-                </div>
+    <nav class="navbar navbar-inverse" role="navigation">
+
+        <div class="container-fluid">
+            <!-- add header -->
+            <div class="navbar-header pull-left">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-        </div>
-        <div class="row">
-            <div class="wrapper">
-                <div class="col-md-12">
-                    <div class="row">
-                        <ul class="tabs clearfix">
-                            <?php for ($i=1; $i < count($weather_data->consolidated_weather); $i++) { 
-                                    $item_day = $weather_data->consolidated_weather[$i];
-                                    $day_name = date('l ', strtotime($item_day->applicable_date));
-                                    $image_name_state = array('c'=>'clear','lc'=>'light-cloud','hc'=>'heavy-cloud','s'=>'showers','lr'=>'light-rain','hr'=>'heavy-rain','t'=>'thunderstorm','h'=>'hail');
-                                    $item_img = $image_name_state[$item_day->weather_state_abbr];
-                            ?>
-                            <li class="col-md-15 col-sm-12 col-xs-12">
-                                <div class="list-item">
-                                    <h4><?= $day_name ?></h4>
-                                    <hr>
-                                    <img src="<?= asset_uri().'image/'.$item_img.'.png'?>" class="cons-img" >
-                                </div>
-                            </li>
-                            <?php } ?>
+
+            <!-- add menu -->
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="<?= site_url() ?>">Home <span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">City<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">List</a></li>
                             
                         </ul>
+                    </li>
+                </ul>
+              <!-- add search form -->
+            </div>
+             <form class="navbar-form navbar-right pull-right" role="search">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search this site">
+                <span class="input-group-btn">
+                  <button type="submit" class="btn btn-default">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button>
+                </span>
+              </div>
+          </form>
+           
+        </div>
+    </nav>
+
+    <div class="second-tabs-content weather">
+        <div class="container">
+            <!-- today foreacast -->
+            <div class="row">
+                <?php $today_weather = $weather_data->consolidated_weather[0]; 
+                      $image_name_state = array('c'=>'clear','lc'=>'light-cloud','hc'=>'heavy-cloud','s'=>'showers','lr'=>'light-rain','hr'=>'heavy-rain','t'=>'thunderstorm','h'=>'hail');
+
+                      $item_img = $image_name_state[$today_weather->weather_state_abbr];
+                ?>
+                <div class="col-md-12">
+                    <div class="section-heading">
+                        <img src="<?= asset_uri().'image/'.$item_img.'.png'?>" class="today-img">
+                        <div class="header-temp"><?= round($today_weather->the_temp,0) ?>&#176;
+                            <div class="today-minmax"><span class="min-color"><?= round($today_weather->min_temp,0) ?>&#176;</span> / <span class="max-color"><?= round($today_weather->max_temp,0) ?>&#176;</span></div>
+                        </div>
                     </div>
+                    <div class="today-state min-color"><?= $today_weather->weather_state_name; ?></div>
+                </div>
+            </div>
+
+            <!-- 5 days forecast -->
+            <div class="row">
+                <div class="wrapper">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <ul class="tabs clearfix" data-tabgroup="second-tab-group">
+                                <?php for ($i=1; $i < count($weather_data->consolidated_weather); $i++) { 
+                                        $item_day = $weather_data->consolidated_weather[$i];
+                                        $day_name = date('l ', strtotime($item_day->applicable_date));
+                                        $item_img = $image_name_state[$item_day->weather_state_abbr];
+                                ?>
+                                <li class="col-md-15 col-sm-12 col-xs-12">
+                                    
+                                    <div class="list-item min-color"> 
+                                        <h4><?= $day_name ?></h4>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <img src="<?= asset_uri().'image/'.$item_img.'.png'?>" class="cons-img" >
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p class="small-text min-color"><?=round($item_day->min_temp,0); ?>&#176;</p>
+                                                <p class="small-text max-color"><?=round($item_day->max_temp,0); ?>&#176;</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
     </div>
-    
 </body>
 </html>

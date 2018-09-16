@@ -5,7 +5,7 @@ Solution : Create microsite to view forecast weather
 
 # TODO
 
-[ ] Get weather data from www.metaweather.com/api
-[ ] Create HTML layout
-[ ] Connect weather data to framework view
+[x] Get weather data from www.metaweather.com/api
+[x] Create HTML layout
+[x] Connect weather data to framework view
 [ ] Create search city history
