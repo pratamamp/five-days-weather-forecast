@@ -38,10 +38,10 @@ class Welcome extends CI_Controller {
 		$weather = $this->get_day_forecast('jakarta');
 		// $weather = file_get_contents(asset_uri().'assets/js/demo_data.json');
 
-		$demo_url = asset_uri().'js/demo_data.json';
-		$weather = file_get_contents($demo_url);
-		$this->load->view('vhome',['weather_data'=>json_decode($weather)],false);
-		// $this->load->view('vhome', ['weather_data'=>$weather],false);
+		// $demo_url = asset_uri().'js/demo_data.json';
+		// $weather = file_get_contents($demo_url);
+		// $this->load->view('vhome',['weather_data'=>json_decode($weather)],false);
+		$this->load->view('vhome', ['weather_data'=>$weather],false);
 	}
 
 	public function get_day_forecast($city) {
