@@ -33,8 +33,16 @@
                     <li class="dropdown ">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">City<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">List</a></li>
-                            
+                            <?php 
+                                $sess = $this->session->userdata('cities'); 
+                                foreach ($sess['cities'] as $item) {
+                            ?>
+                                <li><a href="<?= site_url('city/'.$item); ?>"><?= ucfirst($item) ?></a></li>
+
+                            <?php } ?>
+                               
+                                <li role="separator" class="divider"></li>
+                                <li><a href="<?= site_url('clear-list') ?>">Clear List</a></li>
                         </ul>
                     </li>
                 </ul>

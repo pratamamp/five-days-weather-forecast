@@ -8,7 +8,7 @@ Solution : Create microsite to view forecast weather
 * [x] Get weather data from www.metaweather.com/api
 * [x] Create HTML layout
 * [x] Connect weather data to framework view
-* [ ] Create search city history
+* [x] Create search city history
 
 ## Getting Started
 

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Home extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,21 +22,15 @@ class Welcome extends CI_Controller {
 	private $api_url = 'https://www.metaweather.com';
 	private $location_url = '/api/location/';
 	private $header = array('Except:');
+	private $live = 0;
 
-	public function index()
-	{
-		
+	function index() {
+		$post = $this->input->post(null,true);
 		$get_city = 'jakarta';
-		if($_SERVER['REQUEST_METHOD']=='POST'){
-			$get_city = $this->input->post('search');
+		if(isset($post['search'])) {
+			$get_city = $post['search'];
 		}
-		
 		$weather = $this->get_day_forecast($get_city);
-
-		// $demo_url = asset_uri().'js/demo_data.json';
-		// $weather = file_get_contents($demo_url);
-		// $this->load->view('vhome',['weather_data'=>json_decode($weather)],false);
-		$this->load->view('vhome', ['weather_data'=>$weather],false);
 	}
 
 	public function get_day_forecast($city) {
@@ -46,14 +40,26 @@ class Welcome extends CI_Controller {
 			
 			$get_day_forecast = $this->get_api($this->api_url.$this->location_url.$get_city_api[0]->woeid.'/', $this->header);
 			if(isset($get_day_forecast)) {
-				return $get_day_forecast;
+				$data['city_name'] = $city;
+				$current_sess = $this->session->userdata('cities');
+				$cityexists = false;
+				if($this->session->has_userdata('cities')){
+					for ($i=0; $i < count($current_sess['cities']); $i++) { 
+						if(strtolower($current_sess['cities'][$i]) == strtolower($city)) $cityexists = true; 
+					}
+				}
+				if(!$cityexists){
+					$current_sess['cities'][] = $city;
+					$this->session->set_userdata('cities', $current_sess);
+				}
+				$this->load->view('vhome', ['weather_data'=>$get_day_forecast],false);
 			}else {
 				echo "Data cuaca tidak ditemukan";
-				return;
+				return false;
 			}
 		}else{
 			echo "Data kota tidak ditemukan!";
-			return;
+			return false;
 		}
 		
 	}
@@ -68,6 +74,11 @@ class Welcome extends CI_Controller {
 		$result=curl_exec($ch);
 		curl_close($ch);
 		return json_decode($result);
+	}
+
+	function clearlist() {
+		$this->session->sess_destroy();
+		redirect(base_url());
 	}
 
 }
