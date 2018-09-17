@@ -296,13 +296,12 @@ p {
 
 @media (max-width: 385px){
   .today-img {
-    width: 100%; 
+    width: 100%;
   }
 
   .header-temp {
     font-size: 72px;
-    left: -20%;
-    top: 100%;
+    position: relative;
   }
 
 }
